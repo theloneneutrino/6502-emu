@@ -10,4 +10,6 @@ class MEM
 	MEM();
 	
 	byte& operator[](u32 Address);
+	
+	void WriteWord(u32& cycles, word value, u32 Address);
 };

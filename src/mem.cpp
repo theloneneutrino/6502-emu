@@ -12,3 +12,10 @@ byte& MEM::operator[](u32 Address)
 {
 	return Data[Address];
 }
+
+void MEM::WriteWord(u32& cycles, word value, u32 Address)
+{
+	Data[Address]	= value & 0xFF;
+	Data[Address]	= value >> 8;
+	cycles -= 2;
+}
