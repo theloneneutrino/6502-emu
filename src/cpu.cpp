@@ -1,17 +1,14 @@
-#include "headers/cpu.h"
+#include "headers/cpu.h" 
 
 CPU::CPU()
 {
 	PC = 0xFFFC;
-	for (bool * i = &PS[0]; i <= &PS[7]; i++)
-	{
-		*i = 0;
-	}
+  C = Z = I = D = B = V = N = 0;
 
 	A = X = Y = 0;
 
-	fn_Opcode[0xA9] = &CPU::INS_LDA_IM;
 	fn_Opcode[0xA5] = &CPU::INS_LDA_ZP;
+	fn_Opcode[0xA9] = &CPU::INS_LDA_IM;
 	fn_Opcode[0xB5] = &CPU::INS_LDA_ZPX;
 }
 

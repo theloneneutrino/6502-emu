@@ -2,11 +2,18 @@
 
 class CPU
 {
-	word PC;
-	byte SP;
+	word PC; // program counter
+	word SP; // stack pointer
 
 	byte A, X, Y; //registers
-	bool PS[8];   //status of CPU: NV_BDIZC
+  
+	byte C : 1;   //status of CPU: NV_BDIZC
+	byte Z : 1;
+	byte I : 1;
+	byte D : 1;
+	byte B : 1;
+	byte V : 1;
+	byte N : 1;
 	
 	void (CPU::*fn_Opcode[256]) (u32& cycles, MEM& memory);
 
